@@ -11,5 +11,5 @@ public interface ProjectService {
 
     Optional<Project> getProjectById(Long projectId);
 
-    List<Project> getProjectsByUser(Long userId);
+    List<Project> getProjectsByOwnerId(Long ownerId);
 }
