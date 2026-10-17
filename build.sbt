@@ -11,7 +11,15 @@ lazy val application = (project in file("application"))
   .dependsOn(domain)
 
 lazy val infrastructure = (project in file("infrastructure"))
-  .settings(name := "infrastructure")
+  .settings(
+    name := "infrastructure",
+    libraryDependencies ++= Seq(
+      "org.jooq"           % "jooq"                % "3.21.6",
+      "org.postgresql"     % "postgresql"           % "42.7.12",
+      "org.flywaydb"       % "flyway-core"          % "12.10.0",
+      "org.flywaydb"       % "flyway-database-postgresql" % "12.10.0"
+    )
+  )
   .dependsOn(domain)
 
 lazy val api = (project in file("api"))
